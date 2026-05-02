@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Instagram, Facebook, MapPin, Phone, Clock } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
+import mobileHeroImg from "@/assets/Mobile_Hero.jpg";
 import aboutImg from "@/assets/about.jpg";
 import { TopBar } from "@/components/TopBar";
 import { useAudio, useLang } from "@/contexts/AppProviders";
@@ -20,17 +21,25 @@ const Index = () => {
       <TopBar />
 
       {/* HERO */}
-      <section className="relative h-screen min-h-[680px] w-full overflow-hidden">
-        <motion.img
+      <section className="relative h-screen min-h-[600px] w-full overflow-hidden sm:min-h-[680px]">
+        <motion.picture
           initial={{ scale: 1.15, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 2.4, ease: "easeOut" }}
-          src={heroImg}
-          alt="Candle-lit fine dining table with wagyu, truffle pasta and wood-fired pizza"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+          className="absolute inset-0 h-full w-full"
+        >
+          {/* Mobile: up to 767px */}
+          <source media="(max-width: 767px)" srcSet={mobileHeroImg} />
+          {/* Desktop: 768px and above */}
+          <source media="(min-width: 768px)" srcSet={heroImg} />
+          <img
+            src={heroImg}
+            alt="Candle-lit fine dining table with wagyu, truffle pasta and wood-fired pizza"
+            width={1920}
+            height={1080}
+            className="h-full w-full object-cover object-center"
+          />
+        </motion.picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0)_100%)]" />
 
