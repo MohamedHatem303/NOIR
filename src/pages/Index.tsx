@@ -32,7 +32,7 @@ const Index = () => {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0)_100%)]" />
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0.4} className="ornament mb-6 text-xs text-gold">
